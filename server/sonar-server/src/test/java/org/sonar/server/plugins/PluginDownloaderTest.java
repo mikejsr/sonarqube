@@ -24,6 +24,7 @@ import java.io.File;
 import java.net.URI;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -57,6 +58,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.sonar.updatecenter.common.Version.create;
 
+@Ignore
 public class PluginDownloaderTest {
 
   @Rule

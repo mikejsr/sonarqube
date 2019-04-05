@@ -88,6 +88,7 @@ subprojects {
   apply plugin: 'jacoco'
   apply plugin: 'idea'
 
+  
   // do not deploy to Artifactory by default
   artifactoryPublish.skip = true
 
@@ -311,6 +312,9 @@ subprojects {
         testSourceDirs += file("${protobuf.generatedFilesBaseDir}/test/java")
         generatedSourceDirs += file("${protobuf.generatedFilesBaseDir}/main/java")
         generatedSourceDirs += file("${protobuf.generatedFilesBaseDir}/test/java")
+        outputDir file("$buildDir/classes/java/main")
+        testOutputDir file("$buildDir/classes/java/test")
+        inheritOutputDirs = false
       }
     }
     ide.dependsOn(['generateProto', 'generateTestProto'])

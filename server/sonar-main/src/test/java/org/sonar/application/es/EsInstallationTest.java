@@ -22,6 +22,7 @@ package org.sonar.application.es;
 import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -34,6 +35,7 @@ import static org.sonar.process.ProcessProperties.Property.PATH_HOME;
 import static org.sonar.process.ProcessProperties.Property.PATH_LOGS;
 import static org.sonar.process.ProcessProperties.Property.PATH_TEMP;
 
+@Ignore
 public class EsInstallationTest {
 
   @Rule
