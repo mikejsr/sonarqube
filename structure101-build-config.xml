@@ -5,7 +5,7 @@
         <operation type="check-key-measures">
             <argument name="output-file" value="const(THIS_FILE)/build/structure101/key-measures.xml"/>
             <argument name="output-file-for-snapshot" value="const(THIS_FILE)/build/structure101/snapshot-key-measures.xml"/>
-            <argument name="label" value="1"/>
+            <argument name="baseline" value="1"/>
             <argument name="fail-on-architecture-violations" value="false"/>
             <argument name="fail-on-fat-package" value="false"/>
             <argument name="fail-on-fat-class" value="false"/>
