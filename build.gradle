@@ -88,6 +88,13 @@ subprojects {
   apply plugin: 'jacoco'
   apply plugin: 'idea'
 
+  idea {
+    module {
+      outputDir file("$buildDir/classes/java/main")
+      testOutputDir file("$buildDir/classes/java/test")
+      inheritOutputDirs = false
+    }
+  }
   
   // do not deploy to Artifactory by default
   artifactoryPublish.skip = true
