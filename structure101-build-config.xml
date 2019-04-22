@@ -27,7 +27,7 @@
         <operation type="check-key-measures">
             <argument name="output-file" value="&outputDir;/key-measures.xml"/>
             <argument name="output-file-for-snapshot" value="&outputDir;/snapshot-key-measures.xml"/>
-            <argument name="baseline" value="4"/>
+            <argument name="baseline" value="5"/>
             <argument name="useProjectFileSpec" value="true"/>
             <argument name="useProjectFileDiagrams" value="true"/>
             <argument name="fail-on-architecture-violations" value="false"/>
@@ -47,7 +47,7 @@
         <!-- check for structure spec violations -->
         <operation type="check-spec">
             <argument name="output-file" value="&outputDir;/spec-violations.csv"/>
-            <argument name="baseline" value="4"/>
+            <argument name="baseline" value="5"/>
             <argument name="useProjectFileSpec" value="true"/>
             <argument name="onlyNew" value="true"/>
             <argument name="check-unassociated" value="true"/>
@@ -58,7 +58,7 @@
         <!-- check for architecture violations -->
         <operation type="check-architecture">
             <argument name="output-file" value="&outputDir;/architecture-violations.csv"/>
-            <argument name="baseline" value="4"/>
+            <argument name="baseline" value="5"/>
             <argument name="useProjectFileDiagrams" value="true"/>
             <argument name="onlyNew" value="true"/>
             <argument name="check-unassociated" value="true"/>
