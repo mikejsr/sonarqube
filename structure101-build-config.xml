@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<headless version="1.0">
+<!DOCTYPE headless [
+        <!ENTITY outputDir "const(THIS_FILE)/build/structure101-reports">
+        <!ELEMENT headless (operations|arguments)*>
+        <!ELEMENT operations (operation)*>
+        <!ELEMENT operation (argument)*>
+        <!ATTLIST operation
+                type CDATA #REQUIRED>
+        <!ELEMENT argument (override)*>
+        <!ATTLIST argument
+                name CDATA #REQUIRED
+                value CDATA #REQUIRED>
+        <!ELEMENT arguments (argument)*>
+        <!ELEMENT override (classpathentry)*>
+        <!ATTLIST override
+                attribute CDATA #REQUIRED>
+        <!ELEMENT classpathentry (#PCDATA)>
+        <!ATTLIST classpathentry
+                kind CDATA #REQUIRED
+                module CDATA #REQUIRED
+                path CDATA #REQUIRED>
+        ]>
+<headless>
     <operations>
 
+        <!-- check key measure increase -->
         <operation type="check-key-measures">
-            <argument name="output-file" value="const(THIS_FILE)/build/structure101/key-measures.xml"/>
-            <argument name="output-file-for-snapshot" value="const(THIS_FILE)/build/structure101/snapshot-key-measures.xml"/>
+            <argument name="output-file" value="&outputDir;/key-measures.xml"/>
+            <argument name="output-file-for-snapshot" value="&outputDir;/snapshot-key-measures.xml"/>
             <argument name="baseline" value="4"/>
+            <argument name="useProjectFileSpec" value="true"/>
+            <argument name="useProjectFileDiagrams" value="true"/>
             <argument name="fail-on-architecture-violations" value="false"/>
             <argument name="fail-on-fat-package" value="false"/>
             <argument name="fail-on-fat-class" value="false"/>
@@ -17,52 +41,51 @@
             <argument name="fail-on-biggest-class-tangle" value="false"/>
             <argument name="fail-on-tangled-package" value="false"/>
             <argument name="fail-on-architecture-violations" value="false"/>
-            <argument name="identifier-on-violation" value="S101 key measure violation"/>
+            <argument name="identifier-on-violation" value="Structure101 key measure increased"/>
         </operation>
         
-        // check for structure spec violations
+        <!-- check for structure spec violations -->
         <operation type="check-spec">
-            <argument name="output-file" value="const(THIS_FILE)/build/structure101/spec-violations.csv"/>
-            <argument name="onlyNew" value="false"/>
+            <argument name="output-file" value="&outputDir;/spec-violations.csv"/>
+            <argument name="baseline" value="4"/>
+            <argument name="useProjectFileSpec" value="true"/>
+            <argument name="onlyNew" value="true"/>
             <argument name="check-unassociated" value="true"/>
             <argument name="fail-on-violations" value="false"/>
-            <argument name="identifier-on-violation" value="build unstable"/>
+            <argument name="identifier-on-violation" value="Structure101 new Spec violation"/>
         </operation>
 
-        // check for xs fat and tangles
-        <operation type="check-xs">
-            <argument name="output-file" value="const(THIS_FILE)/build/structure101/xs-offenders.xml"/>
+        <!-- check for architecture violations -->
+        <operation type="check-architecture">
+            <argument name="output-file" value="&outputDir;/architecture-violations.csv"/>
+            <argument name="baseline" value="4"/>
+            <argument name="useProjectFileDiagrams" value="true"/>
+            <argument name="onlyNew" value="true"/>
+            <argument name="check-unassociated" value="true"/>
             <argument name="fail-on-violations" value="false"/>
-            <argument name="fail-on-offenders" value="false"/>
-            <argument name="identifier-on-violation" value="build unstable"/>
+            <argument name="identifier-on-violation" value="Structure101 new Architecture violation"/>
         </operation>
 
-        // if no exceptions then publish ("fail-on-violations" in the above operations must be true for an exception to be throw)
+        <!-- publish snapshot and diagrams -->
         <operation type="publish">
-            <argument name="label" value="BUILD_LABEL"/>
+            <argument name="label" value="LABEL_TOKEN"/>
             <argument name="diagrams" value="true"/>
             <argument name="spec" value="true"/>
             <argument name="actions" value="true"/>
         </operation>
 
-        // once published: -
-        // check actions to show those that can't be applied - ie they are already applied or other changes have made them obsolete
+        <!-- check actions to show those that can't be applied - ie they are already applied or other changes have made them obsolete -->
         <operation type="check-actions">
-            <argument name="output-dir" value="const(THIS_FILE)/build/structure101"/>
+            <argument name="output-dir" value="&outputDir;"/>
         </operation>
 
-        // record metrics for the snapshot/project
-        <operation type="report-metrics">
-            <argument name="output-file" value="const(THIS_FILE)/build/structure101/report-metrics.xml"/>
-        </operation>
-
-        // record summary for the snapshot/project
+        <!-- report summary for the project snapshot -->
         <operation type="report-summary">
-            <argument name="output-dir" value="const(THIS_FILE)/build/structure101t"/>
+            <argument name="output-dir" value="&outputDir;"/>
             <argument name="xml" value="true"/>
             <argument name="notips" value="true"/>
             <argument name="overwrite" value="true"/>
-            <argument name="name" value="EcommerceOFbiz"/>
+            <argument name="name" value="SonarQube"/>
         </operation>
     </operations>
 
