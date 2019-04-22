@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<local-project language="java" version="5.0.14358" xml-version="3" flavor="j2se">
+<local-project language="java" associate="http://ubuntu-server:8989/s101j/data/SonarQube" version="5.0.14358" xml-version="3" flavor="j2se">
   <property name="show-as-module" value="false" />
   <property name="publish-architecture-artifacts" value="true" />
   <property name="force-classpath" value="false" />
