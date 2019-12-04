@@ -41,6 +41,9 @@ sonarqube {
     property 'sonar.projectVersion', versionInSources
     property 'sonar.verbose', true
     property 'sonar.showProfiling', true
+    property 'sonar.host.url', 'http://ubuntu-server:9000'
+    property 'sonar.login', 'admin'
+    property 'sonar.password', 'Caviar76'
   }
 }
 
