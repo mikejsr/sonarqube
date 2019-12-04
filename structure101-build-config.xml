@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE headless [
+        <!ENTITY outputDir "const(THIS_FILE)/build/structure101-reports">
+        <!ELEMENT headless (operations|arguments)*>
+        <!ELEMENT operations (operation)*>
+        <!ELEMENT operation (argument)*>
+        <!ATTLIST operation
+                type CDATA #REQUIRED>
+        <!ELEMENT argument (override)*>
+        <!ATTLIST argument
+                name CDATA #REQUIRED
+                value CDATA #REQUIRED>
+        <!ELEMENT arguments (argument)*>
+        <!ELEMENT override (classpathentry)*>
+        <!ATTLIST override
+                attribute CDATA #REQUIRED>
+        <!ELEMENT classpathentry (#PCDATA)>
+        <!ATTLIST classpathentry
+                kind CDATA #REQUIRED
+                module CDATA #REQUIRED
+                path CDATA #REQUIRED>
+        ]>
+<headless>
+    <operations>
+
+        <!-- check key measure increase -->
+        <operation type="check-key-measures">
+            <argument name="output-file" value="&outputDir;/key-measures.xml"/>
+            <argument name="output-file-for-snapshot" value="&outputDir;/snapshot-key-measures.xml"/>
+            <argument name="baseline" value="6"/>
+            <argument name="useProjectFileSpec" value="true"/>
+            <argument name="useProjectFileDiagrams" value="true"/>
+            <argument name="fail-on-architecture-violations" value="false"/>
+            <argument name="fail-on-fat-package" value="false"/>
+            <argument name="fail-on-fat-class" value="false"/>
+            <argument name="fail-on-fat-method" value="false"/>
+            <argument name="fail-on-feedback-dependencies" value="false"/>
+            <argument name="fail-on-spec-violation-dependencies" value="false"/>
+            <argument name="fail-on-total-problem-dependencies" value="false"/>
+            <argument name="fail-on-spec-item-violations" value="false"/>
+            <argument name="fail-on-biggest-class-tangle" value="false"/>
+            <argument name="fail-on-tangled-package" value="false"/>
+            <argument name="fail-on-architecture-violations" value="false"/>
+            <argument name="identifier-on-violation" value="Structure101 key measure increased"/>
+        </operation>
+        
+        <!-- check for structure spec violations -->
+        <operation type="check-spec">
+            <argument name="output-file" value="&outputDir;/spec-violations.csv"/>
+            <argument name="baseline" value="6"/>
+            <argument name="useProjectFileSpec" value="true"/>
+            <argument name="onlyNew" value="true"/>
+            <argument name="check-unassociated" value="true"/>
+            <argument name="fail-on-violations" value="false"/>
+            <argument name="identifier-on-violation" value="Structure101 new Spec violation"/>
+        </operation>
+
+        <!-- check for architecture violations -->
+        <operation type="check-architecture">
+            <argument name="output-file" value="&outputDir;/architecture-violations.csv"/>
+            <argument name="baseline" value="6"/>
+            <argument name="useProjectFileDiagrams" value="true"/>
+            <argument name="onlyNew" value="true"/>
+            <argument name="check-unassociated" value="true"/>
+            <argument name="fail-on-violations" value="false"/>
+            <argument name="identifier-on-violation" value="Structure101 new Architecture violation"/>
+        </operation>
+
+        <!-- publish snapshot and diagrams -->
+        <operation type="publish">
+            <argument name="label" value="LABEL_TOKEN"/>
+            <argument name="diagrams" value="true"/>
+            <argument name="spec" value="true"/>
+            <argument name="actions" value="true"/>
+        </operation>
+
+        <!-- check actions to show those that can't be applied - ie they are already applied or other changes have made them obsolete -->
+        <operation type="check-actions">
+            <argument name="output-dir" value="&outputDir;"/>
+        </operation>
+
+        <!-- report summary for the project snapshot -->
+        <operation type="report-summary">
+            <argument name="output-dir" value="&outputDir;"/>
+            <argument name="xml" value="true"/>
+            <argument name="notips" value="true"/>
+            <argument name="overwrite" value="true"/>
+            <argument name="name" value="SonarQube"/>
+        </operation>
+    </operations>
+
+    <arguments>
+        <argument name="local-project" value="const(THIS_FILE)/structure101-settings.java.hsp">
+        </argument>
+        <argument name="repository" value="http://ubuntu-server:8989/s101j/data"/>
+        <argument name="project" value="SonarQube"/>
+    </arguments>
+</headless>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local-project language="java" version="5.0.14385" xml-version="3" flavor="j2se">
+  <property name="publish-architecture-artifacts" value="true" />
+  <property name="force-classpath" value="false" />
+  <property name="project-type" value="classpath" />
+  <property name="hide-externals" value="true" />
+  <property name="parse-archive-in-archive" value="false" />
+  <property name="include-injected-dependency" value="false" />
+  <property name="relative-to" value="const(THIS_FILE)" />
+  <property name="action-set-mod" value="1" />
+  <property name="detail-mode" value="true" />
+  <property name="restructuring-system-file" value="structure101-actions.xml" />
+  <property name="hide-deprecated" value="false" />
+  <property name="resolve-name-clashes" value="true" />
+  <property name="project-excluded" />
+  <property name="show-needs-to-compile" value="false" />
+  <property name="physical-layering-system-file" value="structure101-spec.xml" />
+  <classpath>
+    <classpathentry kind="lib" path="sonar-application/build/classes/java/main" module="sonar-application" />
+    <classpathentry kind="lib" path="server/sonar-db-core/build/classes/java/main" module="sonar-db-core" />
+    <classpathentry kind="lib" path="server/sonar-process/build/classes/java/main" module="sonar-process" />
+    <classpathentry kind="lib" path="sonar-testing-harness/build/classes/java/main" module="sonar-testing-harness" />
+    <classpathentry kind="lib" path="sonar-scanner-protocol/build/classes/java/main" module="sonar-scanner-protocol" />
+    <classpathentry kind="lib" path="server/sonar-ce-task-projectanalysis/build/classes/java/main" module="sonar-ce-task-projectanalysis" />
+    <classpathentry kind="lib" path="server/sonar-db-dao/build/classes/java/main" module="sonar-db-dao" />
+    <classpathentry kind="lib" path="sonar-scanner-engine/build/classes/java/main" module="sonar-scanner-engine" />
+    <classpathentry kind="lib" path="server/sonar-ce/build/classes/java/main" module="sonar-ce" />
+    <classpathentry kind="lib" path="server/sonar-main/build/classes/java/main" module="sonar-main" />
+    <classpathentry kind="lib" path="server/sonar-db-migration/build/classes/java/main" module="sonar-db-migration" />
+    <classpathentry kind="lib" path="sonar-plugin-api/build/classes/java/main" module="sonar-plugin-api" />
+    <classpathentry kind="lib" path="sonar-ws/build/classes/java/main" module="sonar-ws" />
+    <classpathentry kind="lib" path="sonar-markdown/build/classes/java/main" module="sonar-markdown" />
+    <classpathentry kind="lib" path="sonar-ws-generator/build/classes/java/main" module="sonar-ws-generator" />
+    <classpathentry kind="lib" path="sonar-check-api/build/classes/java/main" module="sonar-check-api" />
+    <classpathentry kind="lib" path="server/sonar-ce-common/build/classes/java/main" module="sonar-ce-common" />
+    <classpathentry kind="lib" path="server/sonar-ce-task/build/classes/java/main" module="sonar-ce-task" />
+    <classpathentry kind="lib" path="sonar-core/build/classes/java/main" module="sonar-core" />
+    <classpathentry kind="lib" path="sonar-duplications/build/classes/java/main" module="sonar-duplications" />
+    <classpathentry kind="lib" path="server/sonar-server/build/classes/java/main" module="sonar-server" />
+    <classpathentry kind="lib" path="server/sonar-server-common/build/classes/java/main" module="sonar-server-common" />
+    <classpathentry kind="lib" path="plugins/sonar-xoo-plugin/build/classes/java/main" module="sonar-xoo-plugin" />
+  </classpath>
+  <pom-root-files />
+  <modules>
+    <module name="sonarqube" kind="ide-project" />
+    <module name="sonar-web" kind="ide-project" />
+    <module name="sonar-vsts" kind="ide-project" />
+    <module name="sonar-testing-harness" kind="ide-project" />
+    <module name="sonar-process" kind="ide-project" />
+    <module name="sonar-markdown" kind="ide-project" />
+    <module name="sonar-docs" kind="ide-project" />
+    <module name="sonar-check-api" kind="ide-project" />
+    <module name="server" kind="ide-project" />
+    <module name="plugins" kind="ide-project" />
+    <module name="sonar-plugin-api" kind="ide-project">
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-main" kind="ide-project">
+      <requires name="sonar-process" kind="ide-project" />
+    </module>
+    <module name="sonar-db-testing" kind="ide-project">
+      <requires name="sonar-testing-harness" kind="ide-project" />
+    </module>
+    <module name="sonar-xoo-plugin" kind="ide-project">
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-ws" kind="ide-project">
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-duplications" kind="ide-project">
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-core" kind="ide-project">
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-ws-generator" kind="ide-project">
+      <requires name="sonar-ws" kind="ide-project" />
+    </module>
+    <module name="sonar-scanner-protocol" kind="ide-project">
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-scanner-engine" kind="ide-project">
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-duplications" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-db-core" kind="ide-project">
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-scanner-engine-shaded" kind="ide-project">
+      <requires name="sonar-scanner-engine" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-duplications" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-db-migration" kind="ide-project">
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-db-dao" kind="ide-project">
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-server-common" kind="ide-project">
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-ce-task" kind="ide-project">
+      <requires name="sonar-server-common" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-ce-task-projectanalysis" kind="ide-project">
+      <requires name="sonar-ce-task" kind="ide-project" />
+      <requires name="sonar-server-common" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-duplications" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-ce-common" kind="ide-project">
+      <requires name="sonar-ce-task" kind="ide-project" />
+      <requires name="sonar-server-common" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-server" kind="ide-project">
+      <requires name="sonar-ce-task" kind="ide-project" />
+      <requires name="sonar-ce-common" kind="ide-project" />
+      <requires name="sonar-server-common" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-duplications" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-ce-task-projectanalysis" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+    <module name="sonar-ce" kind="ide-project">
+      <requires name="sonar-ce-task" kind="ide-project" />
+      <requires name="sonar-server-common" kind="ide-project" />
+      <requires name="sonar-ce-common" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-ce-task-projectanalysis" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+    </module>
+    <module name="sonar-application" kind="ide-project">
+      <requires name="sonar-main" kind="ide-project" />
+      <requires name="sonar-server" kind="ide-project" />
+      <requires name="sonar-ce" kind="ide-project" />
+      <requires name="sonar-ce-task" kind="ide-project" />
+      <requires name="sonar-server-common" kind="ide-project" />
+      <requires name="sonar-ce-common" kind="ide-project" />
+      <requires name="sonar-db-dao" kind="ide-project" />
+      <requires name="sonar-db-migration" kind="ide-project" />
+      <requires name="sonar-db-core" kind="ide-project" />
+      <requires name="sonar-process" kind="ide-project" />
+      <requires name="sonar-scanner-protocol" kind="ide-project" />
+      <requires name="sonar-core" kind="ide-project" />
+      <requires name="sonar-ws" kind="ide-project" />
+      <requires name="sonar-ce-task-projectanalysis" kind="ide-project" />
+      <requires name="sonar-duplications" kind="ide-project" />
+      <requires name="sonar-plugin-api" kind="ide-project" />
+      <requires name="sonar-markdown" kind="ide-project" />
+      <requires name="sonar-check-api" kind="ide-project" />
+    </module>
+  </modules>
+  <modules-in-scope>
+    <module name="sonar-web" />
+    <module name="sonarqube" />
+    <module name="sonar-testing-harness" />
+    <module name="sonar-vsts" />
+    <module name="sonar-process" />
+    <module name="sonar-main" />
+    <module name="sonar-docs" />
+    <module name="sonar-markdown" />
+    <module name="sonar-db-testing" />
+    <module name="sonar-check-api" />
+    <module name="sonar-plugin-api" />
+    <module name="sonar-ws" />
+    <module name="sonar-ws-generator" />
+    <module name="sonar-xoo-plugin" />
+    <module name="sonar-duplications" />
+    <module name="sonar-core" />
+    <module name="sonar-scanner-protocol" />
+    <module name="sonar-scanner-engine" />
+    <module name="sonar-scanner-engine-shaded" />
+    <module name="sonar-db-core" />
+    <module name="sonar-db-migration" />
+    <module name="sonar-db-dao" />
+    <module name="sonar-server-common" />
+    <module name="sonar-ce-task" />
+    <module name="sonar-ce-common" />
+    <module name="sonar-ce-task-projectanalysis" />
+    <module name="sonar-server" />
+    <module name="sonar-ce" />
+    <module name="sonar-application" />
+    <module name="plugins" />
+    <module name="server" />
+  </modules-in-scope>
+  <excludes>
+    <exclude expression="*.*&amp;amp;*" active="true" />
+  </excludes>
+  <grid-set sep="." version="5.0.14385" />
+</local-project>
