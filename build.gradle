@@ -39,6 +39,8 @@ sonarqube {
   properties {
     property 'sonar.projectName', projectTitle
     property 'sonar.projectVersion', versionInSources
+    property 'sonar.verbose', true
+    property 'sonar.showProfiling', true
   }
 }
 
@@ -88,7 +90,13 @@ subprojects {
   apply plugin: 'jacoco'
   apply plugin: 'idea'
 
-  
+  idea {
+    module {
+      outputDir file("$buildDir/classes/java/main")
+      testOutputDir file("$buildDir/classes/java/test")
+      inheritOutputDirs = false
+    }
+  }  
   // do not deploy to Artifactory by default
   artifactoryPublish.skip = true
 
@@ -312,9 +320,6 @@ subprojects {
         testSourceDirs += file("${protobuf.generatedFilesBaseDir}/test/java")
         generatedSourceDirs += file("${protobuf.generatedFilesBaseDir}/main/java")
         generatedSourceDirs += file("${protobuf.generatedFilesBaseDir}/test/java")
-        outputDir file("$buildDir/classes/java/main")
-        testOutputDir file("$buildDir/classes/java/test")
-        inheritOutputDirs = false
       }
     }
     ide.dependsOn(['generateProto', 'generateTestProto'])
