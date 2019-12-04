@@ -37,7 +37,7 @@ ext.versionInSources = version
 apply plugin: 'org.sonarqube'
 sonarqube {
   properties {
-    property 'sonar.projectName', projectTitle
+    property 'sonar.projectName', 'SQ Test'
     property 'sonar.projectVersion', versionInSources
     property 'sonar.verbose', true
     property 'sonar.showProfiling', true
